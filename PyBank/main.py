@@ -1,9 +1,8 @@
-# Import things and stuff 
+# Import OS and CSV
 import os
 import csv
 
 # Declaring CSV Columns
-date = []
 profLoss = []
 
 # Declaring Variables
@@ -27,11 +26,9 @@ def mean(numbers):
 with open(bankCsv, newline='') as csvfile:
 	reader = csv.DictReader(csvfile)
 
-
 	# Iterating through each row
 	for row in reader:
-		# Tracking Date information
-		date.append(row['Date'])
+
 		# Tracking each individual change in Profits/Losses
 		profLoss.append(int(row['Profit/Losses']))
 	
@@ -61,19 +58,9 @@ avgChange = "${:0,.2f}".format(avgChange)
 greatestIncreaseTotal = "${:0,.2f}".format(greatestIncreaseTotal)
 greatestDecreaseTotal = "${:0,.2f}".format(greatestDecreaseTotal).replace('$-','-$')
 
-
-
 # Stores all needed values in a variable for moving to a text file
 txtFileInfo = f"Financial Analysis"'\n'f"{lineBreak}"'\n'f"Total months: {totalMonths}"'\n'f"Total: {netTotal}"'\n'f"Average Change: {avgChange}"'\n'f"Greatest increase in Profits: {greatestIncreaseDate} {greatestIncreaseTotal}"'\n'f"Greatest decrease in Profits: {greatestDecreaseDate} {greatestDecreaseTotal}"
 
 # Prints requested variables to console
 print(txtFileInfo)
-
-# Creates and writes variables to a text file
-textFile = open("bankFile.txt","w")
-with open("bankFile.txt", "w") as att_file:
-	att_file.write(txtFileInfo)
-
-
-
 
