@@ -64,3 +64,6 @@ txtFileInfo = f"Financial Analysis"'\n'f"{lineBreak}"'\n'f"Total months: {totalM
 # Prints requested variables to console
 print(txtFileInfo)
 
+# Creating text file and adding information
+with open("bank_file.txt", "w") as att_file:
+	att_file.write(txtFileInfo)

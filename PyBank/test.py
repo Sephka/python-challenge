@@ -85,3 +85,28 @@ with open(bankCsv, 'r') as csvfile:
 	# print("Financial Analysis")
 	# print("-"*30)
 	# 
+
+
+
+lst = ['a','a','b','b','b','b','c','d','c','z','e','a','f']
+occurences_dct = {}
+
+for i in lst:
+	if i not in occurences_dct:
+		occurences_dct[i] = 1
+	else:
+		occurences_dct[i] += 1
+
+print(occurences_dct)
+
+lst2 = [['z', 9], ['a', 101], ['b', 2]]
+
+lst2.sort(key = lambda x: x[1])
+print(sorted(lst2, key = lambda x: x[1]))
+print(lst2)
+print(max(lst2, key = lambda x: x[1]))
+print(max(lst2, key = lambda x: x[1])[0])
+
+highest_votes = max([dct[i] for i in dct], key = lambda x: x[1])[0]
+winner = [i for i in dct if dct[i][0] == highest_votes]
+print(winner[0])
